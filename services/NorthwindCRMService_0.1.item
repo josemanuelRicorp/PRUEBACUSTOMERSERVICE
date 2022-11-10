@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:Services="http://www.talend.org/Services">
+  <Services:ServiceConnection xmi:id="_xH92gE8nEe2v0rSRGDibEA" servicePort="_xN4RQE8nEe2v0rSRGDibEA"/>
+  <Services:ServicePort xmi:id="_xN4RQE8nEe2v0rSRGDibEA" name="NorthwindCRMServicePortType" id="_xNblUE8nEe2v0rSRGDibEA" serviceOperation="_xN4RQU8nEe2v0rSRGDibEA"/>
+  <Services:ServiceOperation xmi:id="_xN4RQU8nEe2v0rSRGDibEA" label="NorthwindCRMServiceOperation" name="NorthwindCRMServiceOperation" id="_xNcMYE8nEe2v0rSRGDibEA"/>
+</xmi:XMI>

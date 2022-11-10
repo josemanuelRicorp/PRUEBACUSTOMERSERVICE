@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="NorthwindCRMService"
+		xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+		xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+		xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+		xmlns:tns="http://www.talend.org/service/"
+		targetNamespace="http://www.talend.org/service/">
+
+	<wsdl:types>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+			targetNamespace="http://www.talend.org/service/">
+			<xsd:element name="NorthwindCRMServiceOperationRequest">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="in" type="xsd:string"></xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="NorthwindCRMServiceOperationResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="out" type="xsd:string"></xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:schema>
+	</wsdl:types>
+
+	<wsdl:message name="NorthwindCRMServiceOperationRequest">
+		<wsdl:part name="parameters" element="tns:NorthwindCRMServiceOperationRequest"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="NorthwindCRMServiceOperationResponse">
+		<wsdl:part name="parameters" element="tns:NorthwindCRMServiceOperationResponse"></wsdl:part>
+	</wsdl:message>
+
+	<wsdl:portType name="NorthwindCRMServicePortType">
+		<wsdl:operation name="NorthwindCRMServiceOperation">
+			<wsdl:input message="tns:NorthwindCRMServiceOperationRequest"></wsdl:input>
+			<wsdl:output message="tns:NorthwindCRMServiceOperationResponse"></wsdl:output>
+		</wsdl:operation>
+	</wsdl:portType>
+
+	<wsdl:binding name="NorthwindCRMServiceBinding" type="tns:NorthwindCRMServicePortType">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="NorthwindCRMServiceOperation">
+			<soap:operation soapAction="http://www.talend.org/service/NorthwindCRMServiceOperation" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+
+	<wsdl:service name="NorthwindCRMService">
+		<wsdl:port name="NorthwindCRMServicePort" binding="tns:NorthwindCRMServiceBinding">
+			<soap:address location="http://localhost:8090/services/NorthwindCRMService" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

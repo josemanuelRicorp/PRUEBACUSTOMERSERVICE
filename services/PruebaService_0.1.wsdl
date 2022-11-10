@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="PruebaService"
+		xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+		xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+		xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+		xmlns:tns="http://www.talend.org/service/"
+		targetNamespace="http://www.talend.org/service/">
+
+	<wsdl:types>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+			targetNamespace="http://www.talend.org/service/">
+			<xsd:element name="PruebaServiceOperationRequest">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="in" type="xsd:string"></xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="PruebaServiceOperationResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="out" type="xsd:string"></xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:schema>
+	</wsdl:types>
+
+	<wsdl:message name="PruebaServiceOperationRequest">
+		<wsdl:part name="parameters" element="tns:PruebaServiceOperationRequest"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="PruebaServiceOperationResponse">
+		<wsdl:part name="parameters" element="tns:PruebaServiceOperationResponse"></wsdl:part>
+	</wsdl:message>
+
+	<wsdl:portType name="PruebaServicePortType">
+		<wsdl:operation name="PruebaServiceOperation">
+			<wsdl:input message="tns:PruebaServiceOperationRequest"></wsdl:input>
+			<wsdl:output message="tns:PruebaServiceOperationResponse"></wsdl:output>
+		</wsdl:operation>
+	</wsdl:portType>
+
+	<wsdl:binding name="PruebaServiceBinding" type="tns:PruebaServicePortType">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="PruebaServiceOperation">
+			<soap:operation soapAction="http://www.talend.org/service/PruebaServiceOperation" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+
+	<wsdl:service name="PruebaService">
+		<wsdl:port name="PruebaServicePort" binding="tns:PruebaServiceBinding">
+			<soap:address location="http://localhost:8090/services/PruebaService" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>
